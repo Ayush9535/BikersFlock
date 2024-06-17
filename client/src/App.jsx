@@ -5,7 +5,8 @@ import Registration from './Components/Registration';
 import PostComponent from './Components/Post';
 import NotificationsPanel from './Components/Notifications';
 import Chat from './Pages/Chat';
-import Home from './Components/Home';
+import Home from './Pages/Home';
+import UserProfile from './Pages/Profile';
 function App() {
   return (
     <>
@@ -17,6 +18,7 @@ function App() {
         <Route path="/post" element={<PostComponent />} />
         <Route path="/notify" element={<NotificationsPanel />} />
         <Route path="/chat" element={<Chat />} />
+        <Route path="/profile" element={<UserProfile />} />
       </Routes>
     </div>
     </>

@@ -34,7 +34,7 @@ export default function Navbar() {
         </div>
         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:pr-6">
           <button
-            className="p-1 rounded-full text-bforange hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bfbg focus:ring-white"
+            className="p-1 rounded-full text-bforange hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bfbg focus:ring-white hidden sm:block"
           >
             <span className="sr-only">View profile</span>
             <FaUserCircle className="h-6 w-6" />
