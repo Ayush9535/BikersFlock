@@ -2,9 +2,9 @@ import React from 'react';
 
 const ChatInterface = () => {
     return (
-        <div className="flex flex-col h-[90vh]">
+        <div className="flex flex-col">
             {/* Chat Messages */}
-            <div className="flex-grow p-4 overflow-y-auto">
+            <div className="flex-grow h-[70vh] overflow-y-auto">
                 <div className="mb-4">
                     <div className="flex justify-end mb-2">
                         <div className="bg-blue-500 text-white rounded-lg py-2 px-4 max-w-xs">
@@ -64,7 +64,7 @@ const ChatInterface = () => {
             </div>
 
             {/* Input Field */}
-            <div className="flex items-center bg-white p-4">
+            <div className="flex items-center bg-white p-4 h-[10vh]">
                 <span className='mr-3'>
                     <svg width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="#000000" className='cursor-pointer'><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <rect x="0" fill="none" width="24" height="24"></rect> <g> <path d="M23 4v2h-3v3h-2V6h-3V4h3V1h2v3h3zm-8.5 7c.828 0 1.5-.672 1.5-1.5S15.328 8 14.5 8 13 8.672 13 9.5s.672 1.5 1.5 1.5zm3.5 3.234l-.513-.57c-.794-.885-2.18-.885-2.976 0l-.655.73L9 9l-3 3.333V6h7V4H6c-1.105 0-2 .895-2 2v12c0 1.105.895 2 2 2h12c1.105 0 2-.895 2-2v-7h-2v3.234z"></path> </g> </g></svg>
                 </span>
