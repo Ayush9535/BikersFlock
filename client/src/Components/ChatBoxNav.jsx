@@ -2,7 +2,7 @@ import React from 'react'
 
 const ChatBoxNav = () => {
     return (
-        <div className="flex items-center bg-gray-100 p-4 h-[10vh]">
+        <div className="flex items-center bg-white p-4 h-[10vh]">
             <div class="relative">
                 <img class="w-10 h-10 rounded-full" src="https://avatar.iran.liara.run/public/9" alt="" />
                 <span class="bottom-0 left-7 absolute  w-2.5 h-2.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span>
