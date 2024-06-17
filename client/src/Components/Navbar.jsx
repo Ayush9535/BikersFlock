@@ -4,8 +4,8 @@ import bflogo from '../assets/bflogo.png'; // Adjust the path to the correct loc
 
 export default function Navbar() {
   return (
-    <div className="bg-white">
-      <div className="relative flex items-center justify-between h-16">
+    <div className="bg-white z-03">
+      <div className="relative flex items-center justify-between h-[10vh] shadow-lg ">
         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           {/* Show logo only on small screens */}
           <div className="flex-shrink-0 px-8 sm:hidden">

@@ -60,30 +60,8 @@ const ChatSideBar = () => {
 
 
     return (
-        <div className='w-[20%] h-full z-10'>
-            <div className="bg-white rounded-lg shadow-right p-4 h-full">
-                <div className="flex items-center justify-between mb-4">
-                    <button className="flex items-center text-gray-500 hover:text-gray-700">
-                        <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            className="h-6 w-6"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                        >
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth={2}
-                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                            />
-                        </svg>
-                        <span className="ml-2">Go Back</span>
-                    </button>
-                </div>
-                <div>
-                    <h2 className="text-3xl mb-4 font-semibold">Chats</h2>
-                </div>
+        <div className='w-[20%] h-full'>
+            <div className="bg-white rounded-lg shadow-right p-4 h-[90vh] overflow-auto">
                 <div className="mb-4">
                     <input
                         type="text"
