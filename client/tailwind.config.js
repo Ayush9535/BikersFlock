@@ -4,6 +4,7 @@ export default {
   theme: {
     extend: {
       colors:{
+        'bfbg':"#e5e7eb",
         'bforange':'#db4c1d',
       },
       boxShadow:{
