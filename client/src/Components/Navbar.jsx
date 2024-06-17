@@ -1,17 +1,15 @@
 import React from 'react';
 import { FaSearch, FaUserCircle } from 'react-icons/fa';
-import bflogo from '../assets/bflogo.png'; // Adjust the path to the correct location of your logo image
+import bflogo from '../assets/bflogo.png'; 
 
 export default function Navbar() {
   return (
     <div className="bg-white z-03">
       <div className="relative flex items-center justify-between h-[10vh] shadow-lg ">
         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          {/* Show logo only on small screens */}
           <div className="flex-shrink-0 px-8 sm:hidden">
             <img src={bflogo} alt="BikersFlock Logo" className="h-8 w-auto" />
           </div>
-          {/* Show text only on medium and larger screens */}
           <div className="hidden sm:flex sm:items-center sm:shrink-0 text-bforange text-xl font-bold px-8">
             BikersFlock
           </div>
@@ -26,7 +24,7 @@ export default function Navbar() {
                 type="search"
                 name="search"
                 style={{
-                  maxWidth: '60vw', // Ensure it doesn't overflow on small screens
+                  maxWidth: '60vw',
                 }}
               />
             </div>
