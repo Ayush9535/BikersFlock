@@ -4,8 +4,11 @@ export default {
   theme: {
     extend: {
       colors:{
+        'bfbg':"#e5e7eb",
         'bforange':'#db4c1d',
-        'bfbg':"#e5e7eb"
+      },
+      boxShadow:{
+        'right' : '3px 0px 0px 0px #f3f4f6'
       }
     },
   },
