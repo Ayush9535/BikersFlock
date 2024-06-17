@@ -4,7 +4,7 @@ const ChatInterface = () => {
     return (
         <div className="flex flex-col">
             {/* Chat Messages */}
-            <div className="flex-grow h-[70vh] overflow-y-auto">
+            <div className="flex-grow h-[70vh] overflow-y-auto px-5">
                 <div className="mb-4">
                     <div className="flex justify-end mb-2">
                         <div className="bg-blue-500 text-white rounded-lg py-2 px-4 max-w-xs">

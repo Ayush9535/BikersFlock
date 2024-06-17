@@ -6,7 +6,7 @@ const UserProfile = () => {
 
     return (
         <div className="bg-gray-100 p-4 flex flex-col  h-full">
-            <div className="flex flex-row items-center md:flex-col md:justify-center gap-8">
+            <div className="flex flex-col items-center md:flex-col md:justify-center gap-8">
                 <div className="flex flex-col items-center mb-4 md:mb-0 gap-5">
                     <img
                         className="w-20 h-20 rounded-full"
@@ -41,7 +41,7 @@ const UserProfile = () => {
                 </div>
             </div>
             <div className="mb-4 mt-10 border-b border-gray-200 dark:border-gray-400 w-[90%] m-auto">
-                <ul className="flex flex-wrap justify-center -mb-px text-sm font-medium text-center" id="default-tab" role="tablist">
+                <ul className="flex overflow-x-auto justify-center -mb-px text-sm font-medium text-center" id="default-tab" role="tablist">
                     <li className="me-2" role="presentation">
                         <button
                             className={`inline-block p-4 border-b-2 rounded-t-lg ${activeTab === 'posts' ? 'border-blue-500 bg-gray-200' : 'border-transparent'}`}
@@ -55,7 +55,7 @@ const UserProfile = () => {
                     </li>
                     <li className="me-2" role="presentation">
                         <button
-                            className={`inline-block p-4 border-b-2 rounded-t-lg ${activeTab === 'bikes' ? 'border-blue-500 bg-gray-200' : 'border-transparent'}`}
+                            className={`inline-block text-nowrap p-4 border-b-2 rounded-t-lg ${activeTab === 'bikes' ? 'border-blue-500 bg-gray-200' : 'border-transparent'}`}
                             onClick={() => setActiveTab('bikes')}
                             type="button"
                             role="tab"
@@ -90,7 +90,7 @@ const UserProfile = () => {
             </div>
             <div id="default-tab-content">
                 {activeTab === 'posts' && (
-                    <div className='grid grid-cols-1 md:grid-cols-4 gap-4 mt-6 w-[90%] m-auto'>
+                    <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 w-[90%] m-auto'>
                         <ProfileCardComponent />
                         <ProfileCardComponent />
                         <ProfileCardComponent />

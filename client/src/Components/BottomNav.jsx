@@ -10,7 +10,7 @@ export default function BottomNav() {
           <FaHome className="h-6 w-6" />
           <span className="text-xs">Home</span>
         </Link>
-        <Link to="/notifications" className="text-bforange hover:text-bforange flex flex-col items-center">
+        <Link to="/notify" className="text-bforange hover:text-bforange flex flex-col items-center">
           <FaBell className="h-6 w-6" />
           <span className="text-xs">Notifications</span>
         </Link>
