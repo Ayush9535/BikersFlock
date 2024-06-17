@@ -5,6 +5,7 @@ export default {
     extend: {
       colors:{
         'bforange':'#db4c1d',
+        'bfbg':"#e5e7eb"
       }
     },
   },
