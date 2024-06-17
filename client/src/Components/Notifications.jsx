@@ -3,7 +3,7 @@ import React from 'react';
 const NotificationsPanel = () => {
 
   return (
-    <div className='w-[87vw] h-[90vh] bg-white '>
+    <div className='md:w-[87vw] h-[90vh] bg-white w-[100vw] pt-8'>
       <div className="bg-white py-4]">
         <div className='px-5'>
           <div className="flex items-center mb-4 justify-between">
