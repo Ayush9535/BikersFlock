@@ -5,15 +5,26 @@ import { FaRegEyeSlash } from "react-icons/fa";
 import { RxEyeOpen } from "react-icons/rx";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from "axios";
 
 export default function Login() {
   const [username,setUsername] = useState("")
   const [password,setPassword] = useState("")
   const [showPassword,setShowPassword] = useState(false)
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    console.log(username,password)
+    await axios.post("http://localhost:3000/login",{username,password})
+      .then((res)=>{
+        if(res.data.error){
+          toast.error(res.data.error)
+        }else{
+          toast.success(res.data.message)
+        }
+      })
+      .catch((err)=>{
+        console.log(err)
+      })
   }
     return (
         <div className="flex h-full flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8">

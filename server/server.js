@@ -3,10 +3,17 @@ const app = express();
 const AuthRouter = require('./Routes/AuthRoutes.js');
 const mongoose = require("mongoose");
 const { connectToDb , isConnected} = require('./db.js');
+const Messagerouter = require('./Routes/MessagesRoutes.js');
+const ConversationRouter = require('./Routes/ConversationRouter.js');
+const cookieParser  = require('cookie-parser');
 require("dotenv").config();
 
 app.use(express.json());
+app.use(cookieParser())
+
 app.use(AuthRouter)
+app.use(Messagerouter)
+app.use(ConversationRouter)
 
 app.get('/', (req, res) => {
     isConnected() ? res.send('Connected to Database Successfully..!!') : res.send('Error while connecting to Database..!!')
