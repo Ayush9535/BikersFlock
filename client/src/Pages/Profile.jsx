@@ -6,7 +6,7 @@ const UserProfile = () => {
 
     return (
         <div className="bg-gray-100 p-4 flex flex-col  h-full">
-            <div className="flex flex-row items-center md:flex-col md:justify-center gap-8">
+            <div className=" items-center md:flex-col md:justify-center gap-8">
                 <div className="flex flex-col items-center mb-4 md:mb-0 gap-5">
                     <img
                         className="w-20 h-20 rounded-full"
@@ -33,14 +33,14 @@ const UserProfile = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex justify-center gap-3 mt-4">
                     <button className="bg-orange-600 text-white px-4 py-2 rounded-md mr-2 hover:bg-orange-400">
                         Follow
                     </button>
                     <button className="bg-gray-300 px-4 py-2 rounded-md hover:bg-gray-400">Message</button>
                 </div>
             </div>
-            <div className="mb-4 mt-10 border-b border-gray-200 dark:border-gray-400 w-[90%] m-auto">
+            <div className="mb-4 mt-5 border-b border-gray-200 dark:border-gray-400 w-[90%] m-auto">
                 <ul className="flex flex-wrap justify-center -mb-px text-sm font-medium text-center" id="default-tab" role="tablist">
                     <li className="me-2" role="presentation">
                         <button
