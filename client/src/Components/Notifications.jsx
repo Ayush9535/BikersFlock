@@ -2,8 +2,8 @@ import React from 'react';
 
 const NotificationsPanel = () => {
   return (
-    <div className='w-full sm:w-[87vw] h-[80vh] sm:h-[90vh] bg-white'>
-      <div className="bg-white py-4">
+    <div className='md:w-[87vw] h-[90vh] bg-white w-[100vw] pt-8'>
+      <div className="bg-white py-4]">
         <div className='px-5'>
           <div className="flex items-center mb-4 justify-between">
             <div className='flex items-center gap-4'>
