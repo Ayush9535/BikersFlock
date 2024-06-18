@@ -1,11 +1,12 @@
 import React from 'react';
-import { FaSearch, FaUserCircle } from 'react-icons/fa';
+import { FaSearch, FaComments } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import bflogo from '../assets/bflogo.png'; 
 
 export default function Navbar() {
   return (
     <div className="bg-white z-03">
-      <div className="relative flex items-center justify-between h-[10vh] shadow-lg ">
+      <div className="relative flex items-center justify-between h-[10vh] shadow-lg">
         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div className="flex-shrink-0 px-8 sm:hidden">
             <img src={bflogo} alt="BikersFlock Logo" className="h-8 w-auto" />
@@ -31,12 +32,13 @@ export default function Navbar() {
           </div>
         </div>
         <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:pr-6">
+          <Link to={"/chat"}>
           <button
-            className="p-1 rounded-full text-bforange hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bfbg focus:ring-white hidden sm:block"
+            className="p-1 rounded-full text-bforange focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-bfbg focus:ring-white"
           >
-            <span className="sr-only">View profile</span>
-            <FaUserCircle className="h-6 w-6" />
+            <FaComments className="h-6 w-6" />
           </button>
+          </Link>
         </div>
       </div>
     </div>
