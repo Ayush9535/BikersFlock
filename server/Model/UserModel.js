@@ -35,36 +35,54 @@ const UserSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    followers:{
-        type:Array,
-        required:false
-    },
-    following:{
-        type:Array,
-        required:false
-    },
-    posts:{
-        type:Array,
-        required:false
-    },
-    favbikes:{
-        type:Array,
-        required:false
-    },
-    events:{
-        type:Array,
-        required:false
-    },
+    followers:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'users',
+            required:false
+        }
+    ],
+    following:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'users',
+            required:false
+        }
+    ],
+    posts:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'posts',
+            required:false
+        }
+    ],
+    favbikes:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'bikes',
+            required:false
+        }
+    ],
+    events:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'events',
+            required:false
+        }
+    ],
     achievements:{
         type:Array,
         required:false
     },
-    savedPost:{
-        type:Array,
-        required:false
-    },
-});
+    savedPost:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:'posts',
+            required:false
+        }
+    ],
+} , {timestamps: true});
 
-const UserModel = mongoose.model('user', UserSchema);
+const UserModel = mongoose.model('users', UserSchema);
 
 module.exports = {UserModel};
