@@ -35,7 +35,7 @@ async function RegisterController(req,res){
             return res.status(409).json({ message: "User already exists" });
         }
         let hashedPass = await bcrypt.hash(password, 10);
-        let newUser = new UserModel({ username: username, email: email, password: hashedPass, gender: gender, profileImage: gender=="male"? BoyProfile : GirlProfile});
+        let newUser = new UserModel({ username: username, email: email, password: hashedPass, gender: gender, profilePicture: gender=="male"? BoyProfile : GirlProfile});
         await newUser.save();
         return res.status(201).json({ message: "User registered successfully" });
     } catch (error) {

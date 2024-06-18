@@ -33,7 +33,7 @@ const UserProfile = () => {
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex justify-center gap-3 mt-4">
                     <button className="bg-orange-600 text-white px-4 py-2 rounded-md mr-2 hover:bg-orange-400">
                         Follow
                     </button>
