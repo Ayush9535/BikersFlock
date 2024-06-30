@@ -1,5 +1,5 @@
 import logo from "../assets/bflogo.png"
-import { Link } from "react-router-dom"
+import { Link , useNavigate } from "react-router-dom"
 import { useState } from "react"
 import { FaRegEyeSlash } from "react-icons/fa";
 import { RxEyeOpen } from "react-icons/rx";
@@ -11,18 +11,19 @@ export default function Login() {
   const [username,setUsername] = useState("")
   const [password,setPassword] = useState("")
   const [showPassword,setShowPassword] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     await axios.post("http://localhost:3000/login",{username,password})
       .then((res)=>{
-        if(res.data.error){
-          toast.error(res.data.error)
-        }else{
-          toast.success(res.data.message)
-        }
+        toast.success(res.data.message , {autoClose: 1200 , position: "top-center"})
+        sessionStorage.setItem("token",res.data.token)
+        sessionStorage.setItem("loggedin",true)
+        setTimeout(()=>{navigate("/")},1200)
       })
       .catch((err)=>{
+        toast.error(err.response.data.message , {autoClose: 1200 , position: "top-center"})
         console.log(err)
       })
   }

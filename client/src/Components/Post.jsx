@@ -24,7 +24,7 @@ const PostComponent = () => {
   };
 
   return (
-    <div className='w-[30%] h-[30%]'>
+    <div>
     <div className="bg-white rounded-lg shadow-md p-4">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">

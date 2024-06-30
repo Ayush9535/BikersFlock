@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ChatSideBar = () => {
+const ChatSideBar = ({ setShowChat }) => {
 
     const chats = [
         {
@@ -60,7 +60,7 @@ const ChatSideBar = () => {
 
 
     return (
-        <div className='w-[20%] h-full'>
+        <div className='w-full h-full'>
             <div className="bg-white rounded-lg shadow-right p-4 h-[90vh] overflow-auto">
                 <div className="mb-4">
                     <input
@@ -70,7 +70,7 @@ const ChatSideBar = () => {
                     />
                 </div>
                 {chats.map((chat) => (
-                    <div key={chat.id} className="flex items-center justify-between mb-4 hover:bg-gray-200 cursor-pointer p-2 rounded-sm">
+                    <div key={chat.id} className="flex items-center justify-between mb-4 hover:bg-gray-200 cursor-pointer p-2 rounded-sm" onClick={()=>setShowChat(true)}>
                         <div class="relative">
                             <img class="w-10 h-10 rounded-full" src="https://avatar.iran.liara.run/public/9" alt="" />
                             {chat.online ?<span class="bottom-0 left-7 absolute  w-2.5 h-2.5 bg-green-400 border-2 border-white dark:border-gray-800 rounded-full"></span> : <></>}
