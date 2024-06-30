@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route , useNavigate} from 'react-router-dom';
 import Login from './Components/Login';
 import Registration from './Components/Registration';
 import PostComponent from './Components/Post';
@@ -14,18 +14,24 @@ import Events from './Pages/Events';
 import NewPost from './Components/NewPost';
 
 function App() {
-  const [isSidebarOpen, setSidebarOpen] = useState(false);
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!isSidebarOpen);
-  };
+  const navigate = useNavigate();
+
+  useEffect(()=>{
+    console.log(sessionStorage.getItem("loggedin") !== "true")
+    if (sessionStorage.getItem("loggedin") !== "true"){
+      navigate("/login")
+    }else{
+      navigate("/")
+    }
+  },[])
 
   return (
     <div className="flex flex-col h-screen">
-      <Navbar toggleSidebar={toggleSidebar} />
-      <div className="flex flex-1">
-        <Sidebar isOpen={isSidebarOpen} />
-        <div className="flex-1 bg-gray-100 h-[90vh] overflow-auto z-01">
+      <Navbar />
+      <div className="flex flex-1 lg:h-[90vh] h-[82vh]">
+        <Sidebar />
+        <div className="flex-1 bg-gray-100 overflow-y-auto">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
@@ -34,7 +40,7 @@ function App() {
             <Route path="/notify" element={<NotificationsPanel />} />
             <Route path="/chat" element={<Chat />} />
             <Route path="/profile" element={<UserProfile />} />
-            <Route path="/event" element={<Events />} />
+            <Route path="/events" element={<Events />} />
             <Route path="/newpost" element={<NewPost/>} />
           </Routes>
         </div>

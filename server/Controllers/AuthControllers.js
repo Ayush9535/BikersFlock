@@ -29,13 +29,13 @@ async function LoginController(req,res){
 
 async function RegisterController(req,res){
     try {
-        const { username, email, password, gender} = req.body;
+        const { fullName , username, email, password, gender} = req.body;
         let user = await UserModel.findOne({ $or: [{ username: username }, { email: email }] });
         if (user) {
             return res.status(409).json({ message: "User already exists" });
         }
         let hashedPass = await bcrypt.hash(password, 10);
-        let newUser = new UserModel({ username: username, email: email, password: hashedPass, gender: gender, profilePicture: gender=="male"? BoyProfile : GirlProfile});
+        let newUser = new UserModel({ name: fullName, username: username, email: email, password: hashedPass, gender: gender, profilePicture: gender=="male"? BoyProfile : GirlProfile});
         await newUser.save();
         return res.status(201).json({ message: "User registered successfully" });
     } catch (error) {

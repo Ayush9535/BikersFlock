@@ -5,10 +5,10 @@ import bflogo from '../assets/bflogo.png';
 
 export default function Navbar() {
   return (
-    <div className="bg-white z-03">
+    <div className={`bg-white z-03 ${sessionStorage.getItem("token") == null ? "hidden" : "block"}`}>
       <div className="relative flex items-center justify-between h-[10vh] shadow-lg">
         <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-          <div className="flex-shrink-0 px-8 sm:hidden">
+          <div className="flex-shrink-0 px-8 sm:hidden">  
             <img src={bflogo} alt="BikersFlock Logo" className="h-8 w-auto" />
           </div>
           <div className="hidden sm:flex sm:items-center sm:shrink-0 text-bforange text-xl font-bold px-8">

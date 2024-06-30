@@ -1,30 +1,53 @@
 import logo from "../assets/bflogo.png";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link  , useNavigate} from "react-router-dom";
 import { FaRegEyeSlash } from "react-icons/fa";
 import { RxEyeOpen } from "react-icons/rx";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios'
 
 export default function Registration() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [gender, setGender] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [fullName, setFullname] = useState('');
+  const [errorUserNameMessage, setErrorUserNameMessage] = useState('');
+  const [errorFullNameMessage, setErrorFullNameMessage] = useState('');
   const [showPassword,setShowPassword] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(username,password,email,gender)
+    console.log(fullName,username,password,email,gender)
     const specialCharacterPattern = /[^a-zA-Z0-9]/;
 
     if (specialCharacterPattern.test(username)) {
-      setErrorMessage('Username cannot contain special characters.');
-    } else {
-      setErrorMessage('');
+      setErrorUserNameMessage('Username cannot contain special characters.');
     }
-  };
+    else if (!specialCharacterPattern.test(fullName)) {
+      setErrorFullNameMessage('Name cannot contain special characters.');
+    }else{
+      axios.post('http://localhost:3000/register', {
+        fullName: fullName,
+        username: username,
+        password: password,
+        email: email,
+        gender: gender
+      })
+      .then((res)=>{
+        console.log(res)
+        toast.success('User registered successfully' , {autoClose: 1200, position: "top-center"})
+        setTimeout(()=>{
+          navigate('/login')
+        })
+      })
+      .catch((err)=>{
+        console.log(err)
+        toast.error(err.response.data.message , {autoClose: 1200, position: "top-center"})
+      })
+  }}
 
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center items-center px-6 py-12 lg:px-8">
@@ -42,6 +65,24 @@ export default function Registration() {
       <div className="w-[70%] mt-5 sm:mx-auto md:w-[30%]">
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
+            <label htmlFor="name" className="block text-sm font-medium leading-6 text-gray-900">
+              Full Name
+            </label>
+            <div className="">
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                value={fullName}
+                placeholder="Enter Full Name"
+                onChange={(e) => setFullname(e.target.value)}
+                className="block w-full rounded-md border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
+              />
+              {errorFullNameMessage && <p className="text-red-500 mt-2">{errorFullNameMessage}</p>}
+            </div>
+          </div>
+          <div>
             <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
               Username
             </label>
@@ -56,7 +97,7 @@ export default function Registration() {
                 onChange={(e) => setUsername(e.target.value)}
                 className="block w-full rounded-md border-0 px-5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset sm:text-sm sm:leading-6"
               />
-              {errorMessage && <p className="text-red-500 mt-2">{errorMessage}</p>}
+              {errorUserNameMessage && <p className="text-red-500 mt-2">{errorUserNameMessage}</p>}
             </div>
           </div>
           <div>
@@ -145,7 +186,7 @@ export default function Registration() {
             </button>
           </div>
         </form>
-        <Link to={"/"}>
+        <Link to={"/login"}>
           <p className="mt-2 text-center text-sm text-gray-500">
             Existing user?{' '}
             <span className="font-semibold leading-6 text-bforange">

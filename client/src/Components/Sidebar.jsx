@@ -4,11 +4,11 @@ import { Link } from 'react-router-dom';
 
 export default function Sidebar({ isOpen }) {
   return (
-    <div className={`fixed sm:relative inset-y-0 left-0 w-[13%] z-02 bg-white shadow-right ${isOpen ? 'block' : 'hidden'} sm:block`}>
+    <div className={`fixed sm:relative inset-y-0 left-0 w-[13%] z-02 bg-white shadow-right ${window.location.pathname == "/login" || window.location.pathname == "/signup" ? "hidden" : "lg:block hidden"}`}>
       <div className="flex-1 flex flex-col min-h-0">
         <div className="flex-1 flex flex-col pt-5 pb-4 overflow-y-auto">
           <nav className="mt-5 flex-1 px-2 space-y-1">
-            <Link to="/home" className="text-black hover:bg-bforange hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+            <Link to="/" className="text-black hover:bg-bforange hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
               <FaHome className="mr-4" /> Home
             </Link>
             <Link to="/profile" className="text-black hover:bg-bforange hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
@@ -23,7 +23,7 @@ export default function Sidebar({ isOpen }) {
             <Link to="/notify" className="text-black hover:bg-bforange hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
               <FaBell className="mr-4" /> Notifications
             </Link>
-            <Link to="/event" className="text-black hover:bg-bforange hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
+            <Link to="/events" className="text-black hover:bg-bforange hover:text-white group flex items-center px-2 py-2 text-base font-medium rounded-md">
               <FaCalendarAlt className="mr-4" /> Events
             </Link>
           </nav>

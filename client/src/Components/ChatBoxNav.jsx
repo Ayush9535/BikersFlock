@@ -1,12 +1,12 @@
 import React from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 
-const ChatBoxNav = ({ onBackClick }) => {
+const ChatBoxNav = ({ setShowChat }) => {
   return (
     <div className="flex items-center bg-white p-4 h-[10vh]">
       <button
-        onClick={onBackClick}
-        className="bg-blue-500 text-white rounded-full p-2 mr-4"
+        onClick={()=>setShowChat(false)}
+        className="bg-blue-500 text-white rounded-full p-2 mr-4 lg:hidden"
       >
         <FiArrowLeft className="h-6 w-6" />
       </button>

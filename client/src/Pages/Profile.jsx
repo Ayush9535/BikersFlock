@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import ProfileCardComponent from '../Components/ProfileCardComponent';
+import PostComponent from '../Components/Post';
 
 const UserProfile = () => {
     const [activeTab, setActiveTab] = useState('posts');
 
     return (
-        <div className="bg-gray-100 p-4 flex flex-col  h-full">
+        <div className="bg-gray-100 p-4 flex flex-col h-full mt-10">
             <div className="flex flex-col items-center md:flex-col md:justify-center gap-8">
                 <div className="flex flex-col items-center mb-4 md:mb-0 gap-5">
                     <img
-                        className="w-20 h-20 rounded-full"
+                        className="w-40 h-40 rounded-full"
                         src="https://via.placeholder.com/80"
                         alt="Profile"
                     />
@@ -91,12 +92,12 @@ const UserProfile = () => {
             <div id="default-tab-content">
                 {activeTab === 'posts' && (
                     <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-6 w-[90%] m-auto'>
-                        <ProfileCardComponent />
-                        <ProfileCardComponent />
-                        <ProfileCardComponent />
-                        <ProfileCardComponent />
-                        <ProfileCardComponent />
-                        <ProfileCardComponent />
+                        <PostComponent />
+                        <PostComponent />
+                        <PostComponent />
+                        <PostComponent />
+                        <PostComponent />
+                        <PostComponent />
                     </div>
                 )}
                 {activeTab === 'bikes' && (
